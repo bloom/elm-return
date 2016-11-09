@@ -1,5 +1,13 @@
 # Return
 
+***
+
+**This is a fork of http://package.elm-lang.org/packages/Fresheyeball/elm-return/** for Bloom Built.
+
+It probably won't be kept up-to-date with changes on the parent project. You have been warned.
+
+***
+
 When writing Elm code you unavoidably have to interact with types like this:
 
 ```elm
@@ -72,7 +80,7 @@ we could forget to include `updateCmd` in the final `in` expression,
 and those side effects are lost. Or we could neglect to put the
 final *third* version of the model, `transformed`, into `conditionallyDoSomething`.
 That and there is a big dependence on pattern matching and literals,
-which does not lend itself well to pipelining. 
+which does not lend itself well to pipelining.
 
 Lets see how we can clean this up with `Return`.
 
@@ -100,7 +108,7 @@ update msg model =
                     Debug.log "Stray found" x
 
             in
-            singleton model)            
+            singleton model)
     |> command alwaysDoMeCmd
     |> map Route.alwaysTranfromModelWithMe
     |> effect conditionallyDoSomething
